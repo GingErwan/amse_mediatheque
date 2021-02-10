@@ -45,9 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
           _selectedMedia = series;
           break;
         case 3:
-          _selectedMedia = comics;
-          break;
-        case 4:
           _selectedMedia = albums;
           break;
       }
@@ -82,12 +79,12 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.live_tv),
           ),
           BottomNavigationBarItem(
-            title: Text('Comics'),
-            icon: Icon(Icons.filter_outlined),
-          ),
-          BottomNavigationBarItem(
             title: Text('Albums'),
             icon: Icon(Icons.my_library_music),
+          ),
+          BottomNavigationBarItem(
+            title: Text('About'),
+            icon: Icon(Icons.contact_support_outlined),
           ),
         ],
       ),
@@ -95,7 +92,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildListMedia(List<MediaModel> list){
-    return ListView.builder(
+    return ListView.separated(
+      separatorBuilder: (context, index) => Divider(
+        color: Colors.grey,
+      ),
       itemCount: list.length,
       itemBuilder: (context, index){
         return ListTile(
@@ -110,7 +110,6 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 //MEDIA MODEL
-
 class MediaModel {
   String imageUrl;
   String title;
@@ -138,24 +137,6 @@ final series = [
     'https://m.media-amazon.com/images/M/MV5BNGEyOGJiNWEtMTgwMi00ODU4LTlkMjItZWI4NjFmMzgxZGY2XkEyXkFqcGdeQXVyNjcyNjcyMzQ@._V1_FMjpg_UX675_.jpg',
     title: 'The Boys',
     description: "Série Amazon ...",
-  ),
-];
-
-final comics = [
-  MediaModel(
-    imageUrl: 'https://www.lemagducine.fr/wp-content/uploads/2020/04/V-pour-Vendetta-critique-bd.jpg',
-    title: 'V Pour Vandtta',
-    description: "Ecrit par Alan Moore pour DC Comics, V Pour Vandetta...",
-  ),
-  MediaModel(
-    imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/718E5icuODL.jpg',
-    title: 'Watchmen',
-    description: "Ecrit par Alan Moore pour DC Comincs, Watchment...",
-  ),
-  MediaModel(
-    imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/61118x3OEKL.jpg',
-    title: 'Tintin au pays des Soviets',
-    description: "Ecrit par Hergé, il s'agit du premier tome de la série Tintin....",
   ),
 ];
 
@@ -212,5 +193,20 @@ final books = [
     imageUrl:'https://static.fnac-static.com/multimedia/Images/FR/NR/ab/4b/a8/11029419/1507-1/tsp20190321143217/Iggy-Salvador.jpg',
     title: 'Iggy Salvador',
     description: "Film de Antoine Zebra",
+  ),
+  MediaModel(
+    imageUrl: 'https://www.lemagducine.fr/wp-content/uploads/2020/04/V-pour-Vendetta-critique-bd.jpg',
+    title: 'V Pour Vandtta',
+    description: "Ecrit par Alan Moore pour DC Comics, V Pour Vandetta...",
+  ),
+  MediaModel(
+    imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/718E5icuODL.jpg',
+    title: 'Watchmen',
+    description: "Ecrit par Alan Moore pour DC Comincs, Watchment...",
+  ),
+  MediaModel(
+    imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/61118x3OEKL.jpg',
+    title: 'Tintin au pays des Soviets',
+    description: "Ecrit par Hergé, il s'agit du premier tome de la série Tintin....",
   ),
 ];
