@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -47,6 +48,9 @@ class _MyHomePageState extends State<MyHomePage> {
         case 3:
           _selectedMedia = albums;
           break;
+        case 4:
+          aboutApp();
+          break;
       }
     });
   }
@@ -56,6 +60,9 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: [
+          IconButton(icon: Icon(Icons.favorite_rounded)),
+        ],
       ),
       body: Center(
         child: _buildListMedia(_selectedMedia),
@@ -68,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
         items: [
           BottomNavigationBarItem(
             title: Text('Movies'),
-            icon: Icon(Icons.local_movies),
+            icon: Icon(Icons.local_movies_outlined),
           ),
           BottomNavigationBarItem(
             title: Text('Books'),
@@ -80,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             title: Text('Albums'),
-            icon: Icon(Icons.my_library_music),
+            icon: Icon(Icons.my_library_music_outlined),
           ),
           BottomNavigationBarItem(
             title: Text('About'),
@@ -94,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildListMedia(List<MediaModel> list){
     return ListView.separated(
       separatorBuilder: (context, index) => Divider(
-        color: Colors.grey,
+        color: Colors.blueGrey,
       ),
       itemCount: list.length,
       itemBuilder: (context, index){
@@ -103,8 +110,66 @@ class _MyHomePageState extends State<MyHomePage> {
             image: NetworkImage(list[index].imageUrl),
           ),
           title: Text(list[index].title),
+          trailing: Icon(
+            list[index].like ? Icons.favorite : Icons.favorite_border,
+            color: list[index].like ? Colors.red : null,
+          ),
+          onTap: (){detailedTitle(list[index]);},
+          onLongPress: (){
+            setState(() {
+              list[index].like = !list[index].like;
+            });
+          },
         );
       }
+    );
+  }
+
+  void detailedTitle(MediaModel media){
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context){
+
+          return Scaffold(
+            appBar: AppBar(
+              title: Text('Detailed Title'),
+            ),
+          );
+
+        },
+      ),
+    );
+  }
+
+  void _likedPerMedia(List<MediaModel> medias){
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context){
+
+          return Scaffold(
+            appBar: AppBar(
+              title: Text('Likes'),
+            ),
+          );
+
+        },
+      ),
+    );
+  }
+
+  void aboutApp(){
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context){
+
+          return Scaffold(
+            appBar: AppBar(
+              title: Text('About app'),
+            ),
+          );
+
+        },
+      ),
     );
   }
 }
@@ -114,9 +179,10 @@ class MediaModel {
   String imageUrl;
   String title;
   String description;
+  bool like;
 
   // Constructor
-  MediaModel({this.imageUrl, this.title, this.description});
+  MediaModel({this.imageUrl, this.title, this.description}){like = false;}
 }
 
 final series = [
