@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
           _selectedMedia = albums;
           break;
         case 4:
-          aboutApp();
+          _selectedMedia = likes;
           break;
       }
     });
@@ -61,7 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
         actions: [
-          IconButton(icon: Icon(Icons.favorite_rounded)),
+          IconButton(icon: Icon(Icons.contact_support_outlined),
+              onPressed: aboutApp,
+          ),
         ],
       ),
       body: Center(
@@ -90,8 +92,8 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.my_library_music_outlined),
           ),
           BottomNavigationBarItem(
-            title: Text('About'),
-            icon: Icon(Icons.contact_support_outlined),
+            title: Text('Likes'),
+            icon: Icon(Icons.favorite_outline_rounded),
           ),
         ],
       ),
@@ -118,6 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
           onLongPress: (){
             setState(() {
               list[index].like = !list[index].like;
+              list[index].like ? likes.add(list[index]) : likes.remove(list[index]);
             });
           },
         );
@@ -129,29 +132,11 @@ class _MyHomePageState extends State<MyHomePage> {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context){
-
           return Scaffold(
             appBar: AppBar(
               title: Text('Detailed Title'),
             ),
           );
-
-        },
-      ),
-    );
-  }
-
-  void _likedPerMedia(List<MediaModel> medias){
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (BuildContext context){
-
-          return Scaffold(
-            appBar: AppBar(
-              title: Text('Likes'),
-            ),
-          );
-
         },
       ),
     );
@@ -173,6 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
 
 //MEDIA MODEL
 class MediaModel {
@@ -276,3 +262,5 @@ final books = [
     description: "Ecrit par Hergé, il s'agit du premier tome de la série Tintin....",
   ),
 ];
+
+final likes = new List<MediaModel>();
