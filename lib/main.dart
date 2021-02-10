@@ -8,27 +8,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Mediatheque',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Mediatheque'),
+      home:
+        MyHomePage(title: 'Mediatheque'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -36,11 +27,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int _selectedIndex = 0;
 
-  void _incrementCounter() {
+  void _onItemTapped(int index){
     setState(() {
-      _counter--;
+      _selectedIndex = index;
     });
   }
 
@@ -51,54 +42,54 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+        child: ListTile(
+            title: Text(
+              albums[0].title,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+            leading: Image.network(albums[0].imageUrl),
+            trailing: Icon(Icons.favorite),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
       bottomNavigationBar: BottomNavigationBar(
-          currentIndex: 0,
-          iconSize: 20.0,
-          type: BottomNavigationBarType.fixed,
-          items: [
-            BottomNavigationBarItem(
-              title: Text('Movies'),
-              icon: Icon(Icons.local_movies),
-            ),
-            BottomNavigationBarItem(
-              title: Text('Books'),
-              icon: Icon(Icons.book_outlined),
-            ),
-            BottomNavigationBarItem(
-              title: Text('Series'),
-              icon: Icon(Icons.live_tv),
-            ),
-            BottomNavigationBarItem(
-              title: Text('Comics'),
-              icon: Icon(Icons.filter_outlined),
-            ),
-            BottomNavigationBarItem(
-              title: Text('Albums'),
-              icon: Icon(Icons.my_library_music),
-            ),
-          ],
+        currentIndex: _selectedIndex,
+        iconSize: 20.0,
+        type: BottomNavigationBarType.fixed,
+        onTap: _onItemTapped,
+        items: [
+          BottomNavigationBarItem(
+            title: Text('Movies'),
+            icon: Icon(Icons.local_movies),
+          ),
+          BottomNavigationBarItem(
+            title: Text('Books'),
+            icon: Icon(Icons.book_outlined),
+          ),
+          BottomNavigationBarItem(
+            title: Text('Series'),
+            icon: Icon(Icons.live_tv),
+          ),
+          BottomNavigationBarItem(
+            title: Text('Comics'),
+            icon: Icon(Icons.filter_outlined),
+          ),
+          BottomNavigationBarItem(
+            title: Text('Albums'),
+            icon: Icon(Icons.my_library_music),
+          ),
+        ],
       ),
     );
   }
+
+  Widget _buildListMedia(){
+    return ListView.builder(
+
+    );
+  }
+
 }
+
+//MEDIA MODEL
 
 class MediaModel {
   String imageUrl;
@@ -130,15 +121,76 @@ final series = [
   ),
 ];
 
-final bds = [
+final comics = [
   MediaModel(
-    imageUrl: 'images/bds/aldebaran.jpg',
-    title: 'Aldébaran',
-    description: "Les mondes d'Aldébaran ...",
+    imageUrl: 'https://www.lemagducine.fr/wp-content/uploads/2020/04/V-pour-Vendetta-critique-bd.jpg',
+    title: 'V Pour Vandtta',
+    description: "Ecrit par Alan Moore pour DC Comics, V Pour Vandetta...",
   ),
   MediaModel(
-    imageUrl: 'images/bds/le_tueur.jpg',
-    title: 'Le tueur',
-    description: "Bd cynique sur le monde...",
+    imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/718E5icuODL.jpg',
+    title: 'Watchmen',
+    description: "Ecrit par Alan Moore pour DC Comincs, Watchment...",
+  ),
+  MediaModel(
+    imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/61118x3OEKL.jpg',
+    title: 'Tintin au pays des Soviets',
+    description: "Ecrit par Hergé, il s'agit du premier tome de la série Tintin....",
+  ),
+];
+
+final movies = [
+  MediaModel(
+    imageUrl:'https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_.jpg',
+    title: 'La La Land',
+    description: "Film de Damien Chazelle",
+  ),
+  MediaModel(
+    imageUrl:
+    'https://fr.web.img4.acsta.net/pictures/17/06/30/16/06/184359.jpg',
+    title: '120 Battements par Minutes',
+    description: "Film de Robin Campillo",
+  ),
+  MediaModel(
+    imageUrl:
+    'https://fr.web.img2.acsta.net/c_310_420/pictures/17/05/30/14/36/446691.jpg',
+    title: 'Baby Driver',
+    description: "Film de Edgar Wright",
+  ),
+];
+
+final albums = [
+  MediaModel(
+    imageUrl:'https://images-na.ssl-images-amazon.com/images/I/715LZJ5qX0L._SL1200_.jpg',
+    title: 'OK Computer',
+    description: "Album de Radiohead",
+  ),
+  MediaModel(
+    imageUrl:'https://images-na.ssl-images-amazon.com/images/I/81qd7axW5TL._SL1500_.jpg',
+    title: "<|°_°|>",
+    description: "Album de Caravan Palace",
+  ),
+  MediaModel(
+    imageUrl:'https://img.discogs.com/hDJgRO0UG_MjHb40wqtehx6K6fc=/fit-in/600x591/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-1787995-1329647708.jpeg.jpg',
+    title: 'Wolfgang Amadeus Phoenix',
+    description: "Album de Phoenix",
+  ),
+];
+
+final books = [
+  MediaModel(
+    imageUrl:'https://actualitte.com/uploads/images/75488198_14658327-b77d7f85-dc55-40c8-8529-d9da74987834.jpg',
+    title: 'Sharko',
+    description: "Livre de Franck Thilliez",
+  ),
+  MediaModel(
+    imageUrl:'https://fetv.cia-france.com/image/2016/7/19/jpg_190x300_l_ecume_gallimard_300.jpg%28mediaclass-base-media-preview.6c55b7f9d7072a9aa50507b4f1ace9e2a15d3b23%29.jpg',
+    title: "L'écume des jours",
+    description: "Livre de Boris Vian",
+  ),
+  MediaModel(
+    imageUrl:'https://static.fnac-static.com/multimedia/Images/FR/NR/ab/4b/a8/11029419/1507-1/tsp20190321143217/Iggy-Salvador.jpg',
+    title: 'Iggy Salvador',
+    description: "Film de Antoine Zebra",
   ),
 ];
