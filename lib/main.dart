@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Mediatheque',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
       ),
       home:
         MyHomePage(title: 'Mediatheque'),
@@ -28,10 +28,29 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
+  List<MediaModel> _selectedMedia = movies;
 
   void _onItemTapped(int index){
     setState(() {
       _selectedIndex = index;
+
+      switch(index){
+        case 0:
+          _selectedMedia = movies;
+          break;
+        case 1:
+          _selectedMedia = books;
+          break;
+        case 2:
+          _selectedMedia = series;
+          break;
+        case 3:
+          _selectedMedia = comics;
+          break;
+        case 4:
+          _selectedMedia = albums;
+          break;
+      }
     });
   }
 
@@ -42,13 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: ListTile(
-            title: Text(
-              albums[0].title,
-            ),
-            leading: Image.network(albums[0].imageUrl),
-            trailing: Icon(Icons.favorite),
-        ),
+        child: _buildListMedia(_selectedMedia),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
@@ -81,12 +94,19 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _buildListMedia(){
+  Widget _buildListMedia(List<MediaModel> list){
     return ListView.builder(
-
+      itemCount: list.length,
+      itemBuilder: (context, index){
+        return ListTile(
+          leading: Image(
+            image: NetworkImage(list[index].imageUrl),
+          ),
+          title: Text(list[index].title),
+        );
+      }
     );
   }
-
 }
 
 //MEDIA MODEL
