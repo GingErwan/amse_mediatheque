@@ -215,12 +215,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Text(
-                                'Ranto RABESANDRATANA'
-                              ),
-                              Text(
-                                  'Erwan MERLY'
-                              ),
+                              Text('Ranto RABESANDRATANA'),
+                              Text('Erwan MERLY'),
                             ],
                           ),
                           ),
@@ -229,7 +225,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               _buildIconColumn(Colors.purple, Icons.call, '+33695572996', Icons.mail, 'ranto.rabesandratana@etu.imt-lille-douai.fr'),
-                              _buildIconColumn(Colors.purple, Icons.call, 'num Erwan', Icons.mail, 'erwan.merly@etu.imt-lille-douai.fr'),
+                              _buildIconColumn(Colors.purple, Icons.call, '+33634437414', Icons.mail, 'erwan.merly@etu.imt-lille-douai.fr'),
                             ],
                           ),
                         ),
