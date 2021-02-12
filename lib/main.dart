@@ -31,6 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   List<MediaModel> _selectedMedia = movies;
 
+
   void _onItemTapped(int index){
     setState(() {
       _selectedIndex = index;
@@ -143,6 +144,26 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void aboutApp(){
+    Column _buildButtonColumn(Color color, IconData icon, String label) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, color: color),
+          Container(
+            margin: const EdgeInsets.only(top: 8),
+            child: Text(
+              label,
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+                color: color,
+              ),
+            ),
+          ),
+        ],
+      );
+    }
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context){
@@ -151,8 +172,103 @@ class _MyHomePageState extends State<MyHomePage> {
             appBar: AppBar(
               title: Text('About app'),
             ),
-          );
+            body: Center(
+              child: Row(
+                children: [
+                  Expanded(
+                    /*1*/
+                    child: Column(
 
+                      children: [
+                        /*2*/
+                        Container(
+                          padding: const EdgeInsets.only(bottom: 40),
+                          child: Text(
+                            'Thank you for Using this app!',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24,
+                            ),
+
+                          ),
+                        ),
+                        Text(
+                          'This App was created by: ',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                          ),
+                        ),
+                        /* Text(
+                          'Ranto RABESANDRATANA',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                        _buildButtonColumn(Colors.grey, Icons.call, '+33695572996'),
+                        _buildButtonColumn(Colors.grey, Icons.mail, 'ranto.rabesandratana@etu.imt-lille-douai.fr'),
+                        Text(
+                          'Erwan MERLY',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                        _buildButtonColumn(Colors.grey, Icons.call, 'Num Erwan'),
+                        _buildButtonColumn(Colors.grey, Icons.mail, 'Mail Erwan'),
+*/
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "Ranto RABESANDRATANA :   ",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              WidgetSpan(
+                                child: _buildButtonColumn(Colors.purple, Icons.call, '+33695572996'),
+                              ),
+                              TextSpan(
+                                text: "     ",
+                              ),
+                              WidgetSpan(
+                                child: _buildButtonColumn(Colors.purple, Icons.mail, 'ranto.rabesandratana@etu.imt-lille-douai.fr'),
+                              ),
+                            ],
+                          ),
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "  Erwan MERLY :   ",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              WidgetSpan(
+                                child: _buildButtonColumn(Colors.purple, Icons.call, 'num Erwan'),
+                              ),
+                              TextSpan(
+                                text: "     ",
+                              ),
+                              WidgetSpan(
+                                child: _buildButtonColumn(Colors.purple, Icons.mail, '       erwan.merly@etu.imt-lille-douai.fr'),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+
+
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
         },
       ),
     );
@@ -190,6 +306,54 @@ final series = [
     title: 'The Boys',
     description: "Série Amazon ...",
   ),
+  MediaModel(
+    imageUrl:
+    'https://www.mondedesgrandesecoles.fr/wp-content/uploads/la-casa-de-papel-2.jpg',
+    title: 'La Casa de Papel',
+    description: "Série Netflix ...",
+  ),
+  MediaModel(
+    imageUrl:
+    'https://fr.web.img5.acsta.net/pictures/19/06/18/12/11/3956503.jpg',
+    title: 'Breaking Bad',
+    description: "Série",
+  ),
+  MediaModel(
+    imageUrl:
+    'https://upload.wikimedia.org/wikipedia/en/1/12/The_Queen%27s_Gambit_%28miniseries%29.png',
+    title: 'Queens Gambit',
+    description: "Série Netflix ...",
+  ),
+  MediaModel(
+    imageUrl:
+    'https://www.lepoint.fr/images/2020/04/18/20259720lpw-20259783-article-jpg_7055451_1250x625.jpg',
+    title: 'Vikings',
+    description: "Série Netflix ...",
+  ),
+  MediaModel(
+    imageUrl:
+    'https://thumbs-prod.si-cdn.com/NtBcZJ-E5dwxqmZQKfXOkkkt3ck=/fit-in/1600x0/filters:focal(634x85:635x86)/https://public-media.si-cdn.com/filer/7b/ba/7bba298e-7e2e-44f0-adb9-b47dfdc1e240/p05m69vt.jpg',
+    title: 'Peaky Blinders',
+    description: "Série Netflix ...",
+  ),
+  MediaModel(
+    imageUrl:
+    'http://www.fulguropop.com/wp-content/uploads/2020/11/Titan-2.jpg',
+    title: 'Attack On Titan',
+    description: "Anime avec des titans",
+  ),
+  MediaModel(
+    imageUrl:
+    'https://www.micromania.fr/dw/image/v2/BCRB_PRD/on/demandware.static/-/Sites-masterCatalog_Micromania/default/dwa2be0622/images/high-res/visuels%20produits%20news/106257.jpg?sw=480&sh=480&sm=fit',
+    title: 'My Hero Academia',
+    description: "Anime avec des jeunes apprentis héros",
+  ),
+  MediaModel(
+    imageUrl:
+    'https://images-na.ssl-images-amazon.com/images/I/81g1x5bk2zL.jpg',
+    title: 'Naruto Shippuden',
+    description: "Anime de Ninjas",
+  ),
 ];
 
 final movies = [
@@ -210,6 +374,60 @@ final movies = [
     title: 'Baby Driver',
     description: "Film de Edgar Wright",
   ),
+  MediaModel(
+    imageUrl:
+    'https://image.api.playstation.com/vulcan/img/cfn/11307RSOY0YPjr2OSOyHwixkMPLtwugfbK0qJ59Su4vVYEnYgoTQKZ2nVrUr9RAo8--DOk45lw0-7rUo2O5hJVg4Te4gV6RE.png',
+    title: 'AVENGERS',
+    description: "Film de Joss Whedon",
+  ),
+  MediaModel(
+    imageUrl:
+    'https://www.avoir-alire.com/IMG/arton1021.jpg',
+    title: 'The Elephant Man',
+    description: "Film de David Lynch",
+  ),
+  MediaModel(
+    imageUrl:
+    'https://images-na.ssl-images-amazon.com/images/I/51VNG7R87NL._AC_SY445_.jpg',
+    title: 'Fight Club',
+    description: "Film de David Fincher",
+  ),
+  MediaModel(
+    imageUrl:
+    'https://images-na.ssl-images-amazon.com/images/I/81nwnHTcV2L._AC_SY445_.jpg',
+    title: 'The Shining',
+    description: "Film de Stanley Kubrick",
+  ),
+  MediaModel(
+    imageUrl:
+    'https://fr.web.img4.acsta.net/pictures/14/10/09/10/20/418344.jpg',
+    title: 'Annabelle',
+    description: "Film de John R. Leonetti",
+  ),
+  MediaModel(
+    imageUrl:
+    'https://images-na.ssl-images-amazon.com/images/I/81%2BNup8-8NL._AC_SL1500_.jpg',
+    title: 'Avengers Endgame',
+    description: "Film de Anthony et Joe Russo",
+  ),
+  MediaModel(
+    imageUrl:
+    'https://images-na.ssl-images-amazon.com/images/I/812uG5uFZhL.jpg',
+    title: 'Mon voisin Totoro',
+    description: "Film de Hayao Miyazaki",
+  ),
+  MediaModel(
+    imageUrl:
+    'https://fr.web.img6.acsta.net/medias/nmedia/18/35/48/22/18399898.jpg',
+    title: 'Le château ambulant',
+    description: "Film de Hayao Miyazaki",
+  ),
+  MediaModel(
+    imageUrl:
+    'https://www.glenat.com/sites/default/files/images/livres/couv/9782344030974-001-T.jpeg',
+    title: 'Princesse Mononoke',
+    description: "Film de Hayao Miyazaki",
+  ),
 ];
 
 final albums = [
@@ -227,6 +445,46 @@ final albums = [
     imageUrl:'https://img.discogs.com/hDJgRO0UG_MjHb40wqtehx6K6fc=/fit-in/600x591/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-1787995-1329647708.jpeg.jpg',
     title: 'Wolfgang Amadeus Phoenix',
     description: "Album de Phoenix",
+  ),
+  MediaModel(
+    imageUrl:'https://images.genius.com/6fd31c8993a97f5851e5f9cfc7cbe5e8.1000x1000x1.jpg',
+    title: 'QALF',
+    description: "Album de Damso",
+  ),
+  MediaModel(
+    imageUrl:'https://images-na.ssl-images-amazon.com/images/I/71zqQLosx6L._SL1400_.jpg',
+    title: 'Trinity',
+    description: "Album de Laylow",
+  ),
+  MediaModel(
+    imageUrl:'https://www.abcdrduson.com/wp-content/uploads/2020/12/67e772f270eeff5f4af6e39cf7ecd2c1.1000x1000x1.jpg',
+    title: 'LMF',
+    description: "Album de Freeze Corleone",
+  ),
+  MediaModel(
+    imageUrl:'https://images-na.ssl-images-amazon.com/images/I/71lqI%2BMuHGL._SL1200_.jpg',
+    title: 'ASTROWORLD',
+    description: "Album de Travis Scott",
+  ),
+  MediaModel(
+    imageUrl:'https://images-na.ssl-images-amazon.com/images/I/51kxhu%2BRm5L._SL1200_.jpg',
+    title: 'Ipséité',
+    description: "Album de Damso",
+  ),
+  MediaModel(
+    imageUrl:'https://images-na.ssl-images-amazon.com/images/I/81jqRIm2UtL._SL1500_.jpg',
+    title: 'JACKBOYS',
+    description: "Album des Jackboys",
+  ),
+  MediaModel(
+    imageUrl:'https://images-na.ssl-images-amazon.com/images/I/713R6331nOL._SY355_.jpg',
+    title: 'Positions',
+    description: "Album d'Ariana Grande",
+  ),
+  MediaModel(
+    imageUrl:'https://static.fnac-static.com/multimedia/Images/FR/NR/57/a9/c9/13216087/1540-1/tsp20210122100243/140-BPM-2.jpg',
+    title: '140 BPM 2',
+    description: "Album d'Hamza",
   ),
 ];
 
