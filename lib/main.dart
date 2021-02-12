@@ -137,6 +137,38 @@ class _MyHomePageState extends State<MyHomePage> {
             appBar: AppBar(
               title: Text('Detailed Title'),
             ),
+            body: ListView(
+              children: [
+                Column(
+                  children: [
+                    Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Expanded(
+                          child: Image(image: NetworkImage(media.imageUrl)),
+                        ),
+                        Container(height: 200, child: VerticalDivider(color: Colors.blueGrey, thickness: 2)),
+                        Column(mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                          Text("TITLE", style: TextStyle(color: Colors.grey, fontSize: 25)),
+                          Container(
+                            width: 100,
+                            child: Text(media.title, textAlign: TextAlign.center),
+                          ),
+                        ],
+                        ),
+                      ],
+                    ),
+                    Container(height: 20, child: Divider(color: Colors.blueGrey, thickness: 3)),
+                    Column(mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("DESCRIPTION", style: TextStyle(color: Colors.grey, fontSize: 25)),
+                        Text(media.description),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
           );
         },
       ),
@@ -176,6 +208,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       );
     }
+
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context){
@@ -185,52 +218,49 @@ class _MyHomePageState extends State<MyHomePage> {
               title: Text('About app'),
             ),
             body: Center(
-                    /*1*/
-                    child: Column(
+              child: Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.only(bottom: 40),
+                    child: Text(
+                      'Thank you for Using this app!',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                      ),
 
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.only(bottom: 20),
+                  child: Text(
+                    'This App was created by:',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                    ),
+                  ),
+                  ),
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        /*2*/
-                        Container(
-                          padding: const EdgeInsets.only(bottom: 40),
-                          child: Text(
-                            'Thank you for Using this app!',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 24,
-                            ),
-
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.only(bottom: 20),
-                        child: Text(
-                          'This App was created by:',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                          ),
-                        ),
-                        ),
-                        Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text('Ranto RABESANDRATANA'),
-                              Text('Erwan MERLY'),
-                            ],
-                          ),
-                          ),
-                        Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              _buildIconColumn(Colors.purple, Icons.call, '+33695572996', Icons.mail, 'ranto.rabesandratana@etu.imt-lille-douai.fr'),
-                              _buildIconColumn(Colors.purple, Icons.call, '+33634437414', Icons.mail, 'erwan.merly@etu.imt-lille-douai.fr'),
-                            ],
-                          ),
-                        ),
+                        Text('Ranto RABESANDRATANA'),
+                        Text('Erwan MERLY'),
                       ],
                     ),
+                    ),
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        _buildIconColumn(Colors.purple, Icons.call, '+33695572996', Icons.mail, 'ranto.rabesandratana@etu.imt-lille-douai.fr'),
+                        _buildIconColumn(Colors.purple, Icons.call, '+33634437414', Icons.mail, 'erwan.merly@etu.imt-lille-douai.fr'),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           );
         },
