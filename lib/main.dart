@@ -144,16 +144,28 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void aboutApp(){
-    Column _buildButtonColumn(Color color, IconData icon, String label) {
+    Column _buildIconColumn(Color color, IconData icon1, String label1, IconData icon2, String label2) {
       return Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: color),
+          Icon(icon1, color: color),
           Container(
             margin: const EdgeInsets.only(top: 8),
             child: Text(
-              label,
+              label1,
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+                color: color,
+              ),
+            ),
+          ),
+          Icon(icon2, color: color),
+          Container(
+            margin: const EdgeInsets.only(top: 8),
+            child: Text(
+              label2,
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
@@ -173,9 +185,6 @@ class _MyHomePageState extends State<MyHomePage> {
               title: Text('About app'),
             ),
             body: Center(
-              child: Row(
-                children: [
-                  Expanded(
                     /*1*/
                     child: Column(
 
@@ -192,81 +201,40 @@ class _MyHomePageState extends State<MyHomePage> {
 
                           ),
                         ),
-                        Text(
-                          'This App was created by: ',
+                        Container(
+                          padding: const EdgeInsets.only(bottom: 20),
+                        child: Text(
+                          'This App was created by:',
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 20,
                           ),
                         ),
-                        /* Text(
-                          'Ranto RABESANDRATANA',
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
                         ),
-                        _buildButtonColumn(Colors.grey, Icons.call, '+33695572996'),
-                        _buildButtonColumn(Colors.grey, Icons.mail, 'ranto.rabesandratana@etu.imt-lille-douai.fr'),
-                        Text(
-                          'Erwan MERLY',
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                        _buildButtonColumn(Colors.grey, Icons.call, 'Num Erwan'),
-                        _buildButtonColumn(Colors.grey, Icons.mail, 'Mail Erwan'),
-*/
-                        RichText(
-                          text: TextSpan(
+                        Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              TextSpan(
-                                text: "Ranto RABESANDRATANA :   ",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.black,
-                                ),
+                              Text(
+                                'Ranto RABESANDRATANA'
                               ),
-                              WidgetSpan(
-                                child: _buildButtonColumn(Colors.purple, Icons.call, '+33695572996'),
-                              ),
-                              TextSpan(
-                                text: "     ",
-                              ),
-                              WidgetSpan(
-                                child: _buildButtonColumn(Colors.purple, Icons.mail, 'ranto.rabesandratana@etu.imt-lille-douai.fr'),
+                              Text(
+                                  'Erwan MERLY'
                               ),
                             ],
                           ),
-                        ),
-                        RichText(
-                          text: TextSpan(
+                          ),
+                        Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              TextSpan(
-                                text: "  Erwan MERLY :   ",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.black,
-                                ),
-                              ),
-                              WidgetSpan(
-                                child: _buildButtonColumn(Colors.purple, Icons.call, 'num Erwan'),
-                              ),
-                              TextSpan(
-                                text: "     ",
-                              ),
-                              WidgetSpan(
-                                child: _buildButtonColumn(Colors.purple, Icons.mail, '       erwan.merly@etu.imt-lille-douai.fr'),
-                              ),
+                              _buildIconColumn(Colors.purple, Icons.call, '+33695572996', Icons.mail, 'ranto.rabesandratana@etu.imt-lille-douai.fr'),
+                              _buildIconColumn(Colors.purple, Icons.call, 'num Erwan', Icons.mail, 'erwan.merly@etu.imt-lille-douai.fr'),
                             ],
                           ),
                         ),
                       ],
-
-
                     ),
-                  ),
-                ],
-              ),
             ),
           );
         },
