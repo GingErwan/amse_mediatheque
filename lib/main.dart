@@ -56,6 +56,13 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _onTapLike(MediaModel media){
+    setState(() {
+      media.like = !media.like;
+      media.like ? likes.add(media) : likes.remove(media);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,17 +120,12 @@ class _MyHomePageState extends State<MyHomePage> {
             image: NetworkImage(list[index].imageUrl),
           ),
           title: Text(list[index].title),
-          trailing: Icon(
-            list[index].like ? Icons.favorite : Icons.favorite_border,
-            color: list[index].like ? Colors.red : null,
+          trailing:
+          IconButton(
+            icon: Icon(list[index].like ? Icons.favorite : Icons.favorite_border, color: list[index].like ? Colors.red : null, size: 30),
+            onPressed: (){_onTapLike(list[index]);},
           ),
           onTap: (){detailedTitle(list[index]);},
-          onLongPress: (){
-            setState(() {
-              list[index].like = !list[index].like;
-              list[index].like ? likes.add(list[index]) : likes.remove(list[index]);
-            });
-          },
         );
       }
     );
@@ -153,6 +155,10 @@ class _MyHomePageState extends State<MyHomePage> {
                           Container(
                             width: 100,
                             child: Text(media.title, textAlign: TextAlign.center),
+                          ),
+                          IconButton(
+                            icon: Icon(media.like ? Icons.favorite : Icons.favorite_border, color: media.like ? Colors.red : null,),
+                            onPressed: (){_onTapLike(media);},
                           ),
                         ],
                         ),
