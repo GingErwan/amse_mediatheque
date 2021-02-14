@@ -362,7 +362,7 @@ final series = [
   ),
   MediaModel(
     imageUrl:
-    'https://upload.wikimedia.org/wikipedia/fr/6/67/StrangerThingslogo.png',
+    'https://ec56229aec51f1baff1d-185c3068e22352c56024573e929788ff.ssl.cf1.rackcdn.com/attachments/large/4/1/3/006854413.jpg',
     title: 'Stranger Things',
     description: "Les frères Duffer",
     synopsis: "A Hawkins, en 1983 dans l'Indiana. Lorsque Will Byers disparaît de son domicile, ses amis se lancent dans une recherche semée d'embûches pour le retrouver. Dans leur quête de réponses, les garçons rencontrent une étrange jeune fille en fuite.",
@@ -376,7 +376,7 @@ final series = [
   ),
   MediaModel(
     imageUrl:
-    'https://www.mondedesgrandesecoles.fr/wp-content/uploads/la-casa-de-papel-2.jpg',
+    'https://media.senscritique.com/media/000018935876/source_big/La_Casa_de_Papel.jpg',
     title: 'La Casa de Papel',
     description: "Alex Pina",
     synopsis: "Huit voleurs font une prise d'otages dans la Maison royale de la Monnaie d'Espagne, tandis qu'un génie du crime manipule la police pour mettre son plan à exécution.",
@@ -397,21 +397,21 @@ final series = [
   ),
   MediaModel(
     imageUrl:
-    'https://www.lepoint.fr/images/2020/04/18/20259720lpw-20259783-article-jpg_7055451_1250x625.jpg',
+    'https://images-na.ssl-images-amazon.com/images/I/91e5V4wK46L._AC_SL1500_.jpg',
     title: 'Vikings',
     description: "Michael Hirst",
     synopsis: "Les exploits d'un groupe de Vikings mené par Ragnar Lothbrok, l'un des vikings les plus populaires de son époque et au destin semi-légendaire, sont narrés par la série. Ragnar serait d'origine norvégienne et suédoise, selon les sources. Il est supposé avoir unifié les clans vikings en un royaume aux frontières indéterminées à la fin du viiie siècle (le roi Ecbert mentionne avoir vécu à la cour du roi Charlemagne, sacré empereur en l'an 800). Mais il est surtout connu pour avoir été le promoteur des tout premiers raids vikings en terres chrétiennes, qu'elles soient saxonnes, franques ou celtiques.\n Simple fermier, homme lige du jarl Haraldson, il se rebelle contre les choix stratégiques de son suzerain. Au lieu d'attaquer les païens slaves et baltes de la Baltique, il décide de se lancer dans l'attaque des riches terres de l'Ouest, là où les monastères regorgent de trésors qui n'attendent que d'être pillés par des guerriers ambitieux.\n Clandestinement, Ragnar va monter sa propre expédition et sa réussite changera le destin des Vikings comme celui des royaumes chrétiens du sud, que le simple nom de « Vikings » terrorisera pendant plus de deux siècles.",
   ),
   MediaModel(
     imageUrl:
-    'https://thumbs-prod.si-cdn.com/NtBcZJ-E5dwxqmZQKfXOkkkt3ck=/fit-in/1600x0/filters:focal(634x85:635x86)/https://public-media.si-cdn.com/filer/7b/ba/7bba298e-7e2e-44f0-adb9-b47dfdc1e240/p05m69vt.jpg',
+    'http://www.ecran-et-toile.com/uploads/5/5/8/7/55875205/peaky-blinders-4_orig.jpg',
     title: 'Peaky Blinders',
     description: "Steven Knight",
     synopsis: "En 1919, à Birmingham, soldats, révolutionnaires politiques et criminels combattent pour se faire une place dans le paysage industriel de l'après-Guerre. Le Parlement s'attend à une violente révolte, et Winston Churchill mobilise des forces spéciales pour contenir les menaces. La famille Shelby compte parmi les membres les plus redoutables. Surnommés les''Peaky Blinders'' par rapport à leur utilisation de lames de rasoir cachées dans leurs casquettes, ils tirent principalement leur argent de paris et de vol. Tommy Shelby, le plus dangereux de tous, va devoir faire face à l'arrivée de Campbell, un impitoyable chef de la police qui a pour mission de nettoyer la ville. Ne doit-il pas se méfier tout autant de la ravissante Grace Burgess ? Fraîchement installée dans le voisinage, celle-ci semble cacher un mystérieux passé et un dangereux secret.",
   ),
   MediaModel(
     imageUrl:
-    'http://www.fulguropop.com/wp-content/uploads/2020/11/Titan-2.jpg',
+    'https://m.media-amazon.com/images/M/MV5BMTY5ODk1NzUyMl5BMl5BanBnXkFtZTgwMjUyNzEyMTE@._V1_.jpg',
     title: 'Attack On Titan',
     description: "Hajime Isayma",
     synopsis: "Dans un monde ravagé par des titans mangeurs d’homme depuis plus d’un siècle, les rares survivants de l’Humanité n’ont d’autre choix pour survivre que de se barricader dans une cité-forteresse. Le jeune Eren, témoin de la mort de sa mère dévorée par un titan, n’a qu’un rêve : entrer dans le corps d’élite chargé de découvrir l’origine des Titans et les annihiler jusqu’au dernier…",
@@ -425,7 +425,7 @@ final series = [
   ),
   MediaModel(
     imageUrl:
-    'https://images-na.ssl-images-amazon.com/images/I/81g1x5bk2zL.jpg',
+    'https://fr.web.img6.acsta.net/pictures/19/08/07/10/08/2485376.jpg',
     title: 'Naruto Shippuden',
     description: "Masashi Kishimoto",
     synopsis: "Naruto est de retour !! Après deux ans et demi d'entraînement avec Jiraya, il retrouve ses camarades de l'Académie des ninja ainsi que ses professeurs de Konoha. Tous ont évolué, y compris les ninjas du village de Suna. Seul Kakashi, semble être resté fidèle à lui-même ! Hélas, les retrouvailles sont de courte durée. Gaara, devenu depuis peu Kazekage de son village, est menacé. Tout porte à croire que l'Akatsuki soit à l'origine de l'attaque.",
@@ -455,7 +455,7 @@ final movies = [
   ),
   MediaModel(
     imageUrl:
-    'https://image.api.playstation.com/vulcan/img/cfn/11307RSOY0YPjr2OSOyHwixkMPLtwugfbK0qJ59Su4vVYEnYgoTQKZ2nVrUr9RAo8--DOk45lw0-7rUo2O5hJVg4Te4gV6RE.png',
+    'https://fr.web.img3.acsta.net/medias/nmedia/18/85/31/58/20042068.jpg',
     title: 'AVENGERS',
     description: "Joss Whedon",
     synopsis: "Nick Fury, le directeur du S.H.I.E.L.D., l'organisation qui préserve la paix dans le monde, veut former une équipe d'irréductibles pour empêcher la destruction du monde. Iron Man, Hulk, Thor, Captain America, Hawkeye et Black Widow répondent présents. La nouvelle équipe, baptisée Avengers, a beau sembler soudée, il reste encore à ses illustres membres à apprendre à travailler ensemble.",
